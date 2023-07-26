@@ -23,18 +23,18 @@ public class UserController {
     private UserService service;
 
     @GetMapping("/user")
-    public List<User> find() {
+    public List<Users> find() {
         return service.find();
     }
 
     @PostMapping("/user")
     @ResponseStatus(HttpStatus.CREATED)
-    public User create(@RequestBody User users) {
+    public Users create(@RequestBody Users users) {
         return service.create(users);
     }
 
     @PutMapping("/user/{id}")
-    public User update(@PathVariable Long id, @RequestBody Map<String, Object> payload) {
+    public Users update(@PathVariable Long id, @RequestBody Map<String, Object> payload) {
         return service.update(id, (int) payload.get("score"));
     }
 

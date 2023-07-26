@@ -12,17 +12,17 @@ public class UserService implements IUserService {
     private UserRepository repository;
 
     @Override
-    public List<User> find() {
+    public List<Users> find() {
         return repository.findAllByOrderByIdAsc();
     }
 
     @Override
-    public User create(User users) {
+    public Users create(Users users) {
         return repository.save(users);
     }
 
     @Override
-    public User update(Long id, int score) {
+    public Users update(Long id, int score) {
         return repository.findById(id)
             .map(existingUser -> {
                 existingUser.setScore(score);

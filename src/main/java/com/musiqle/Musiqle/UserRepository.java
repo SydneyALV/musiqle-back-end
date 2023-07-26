@@ -6,8 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 // @Repository
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends CrudRepository<Users, Long> {
 
-    List<User> findAllByOrderByIdAsc();
+    List<Users> findAllByOrderByIdAsc();
 
 }

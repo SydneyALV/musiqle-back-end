@@ -8,20 +8,22 @@ import jakarta.persistence.GenerationType;
 
 @Entity
 @Table(name="users")
-public class User {
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String username;
+    private String name;
     private int score;
+    private int streak;
 
     //Constructor
-    public User(String username, int score) {
-        this.username = username;
+    public Users(String name, int score, int streak) {
+        this.name = name;
         this.score = score;
+        this.streak = streak;
     }
-
+    
     //Getters and Setters for score and username
     public int getScore() {
         return score;
@@ -29,12 +31,16 @@ public class User {
     public void setScore(int score) {
         this.score = score;
     }
-    public String getUsername() {
-        return username;
+    public int getStreak() {
+        return streak;
     }
-    public void setUsername(String username) {
-        this.username = username;
+    public void setStreak(int streak) {
+        this.streak = streak;
     }
-
-    
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
 }

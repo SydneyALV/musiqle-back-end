@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface IUserService {
 
-    List<User> find();
-    User create(User user);
-    User update(Long id, int score);
+    List<Users> find();
+    Users create(Users users);
+    Users update(Long id, int score);
     void delete(Long id);
 
 }
