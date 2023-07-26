@@ -12,10 +12,12 @@ public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
     private int score;
     private int streak;
+
+    public Users() {}
 
     //Constructor
     public Users(String name, int score, int streak) {
@@ -25,6 +27,9 @@ public class Users {
     }
     
     //Getters and Setters for score and username
+    public Long getId() {
+        return id;
+    }
     public int getScore() {
         return score;
     }
