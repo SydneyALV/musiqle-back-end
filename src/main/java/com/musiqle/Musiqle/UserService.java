@@ -21,11 +21,16 @@ public class UserService implements IUserService {
         return repository.save(users);
     }
 
+    // @Override
+    public Users showEntry(Long id) {
+        return repository.findById(id).orElse(null);
+    }
+
     @Override
     public Users update(Long id, int score) {
         return repository.findById(id)
             .map(existingUser -> {
-                existingUser.setScore(score);
+                existingUser.setscore(score);
                 return repository.save(existingUser);
             })
             .orElse(null);
