@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -32,6 +33,8 @@ public class UserController {
 ///Get User by Id
     @GetMapping("/user/{id}")
     public Users showEntry(@PathVariable Long id) {
+        // Users user = new Users();
+        // System.out.printIn(user.get())
         return service.showEntry(id);
     }
 
@@ -42,43 +45,16 @@ public class UserController {
         return service.create(users);
     }
 
-/// Patch score, streak, totalScore, longestStreak, bestOverallScore, bestScoreAlbum, bestScoreSong 
     @PatchMapping("/user/{id}/score")
     public Users update(@PathVariable Long id, @RequestBody Map<String, Object> payload) {
         return service.update(id, (int) payload.get("score"));
     }
 
-    @PatchMapping("/user/{id}/streak")
-    public Users updateStreak(@PathVariable Long id, @RequestBody Map<String, Object> payload) {
-        return service.updateStreak(id, (int) payload.get("streak"));
-    }
+    // @PatchMapping("/user/{id}/{var}")
+    // public Users update(@PathVariable Long id, @RequestBody Map<String, Object> payload) {
+    //     return service.update(id, (int) payload.get(read(@PathVariable String var)));
+    // }
 
-    @PatchMapping("/user/{id}/totalscore")
-    public Users updateTotalScore(@PathVariable Long id, @RequestBody Map<String, Object> payload) {
-        return service.updateTotalScore(id, (int) payload.get("totalScore"));
-    }
-
-    @PatchMapping("/user/{id}/longeststreak")
-    public Users updateLongestStreak(@PathVariable Long id, @RequestBody Map<String, Object> payload) {
-        return service.updateLongestStreak(id, (int) payload.get("longestStreak"));
-    }
-
-    @PatchMapping("/user/{id}/bestoverallscore")
-    public Users updateBestOverallScore(@PathVariable Long id, @RequestBody Map<String, Object> payload) {
-        return service.updateBestOverallScore(id, (int) payload.get("bestOverallScore"));
-    }
-
-    @PatchMapping("/user/{id}/bestscorealbum")
-    public Users updateBestScoreAlbum(@PathVariable Long id, @RequestBody Map<String, Object> payload) {
-        return service.updateBestScoreAlbum(id, (int) payload.get("bestScoreAlbum"));
-    }
-
-    @PatchMapping("/user/{id}/bestscoresong")
-    public Users updateBestScoreSong(@PathVariable Long id, @RequestBody Map<String, Object> payload) {
-        return service.updateBestScoreSong(id, (int) payload.get("bestScoreSong"));
-    }
-
-/// Delete a user
     @DeleteMapping("/user/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable Long id) {

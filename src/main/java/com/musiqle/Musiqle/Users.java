@@ -16,92 +16,84 @@ public class Users {
     private String name;
     private int score;
     private int streak;
-    private int totalScore;
-    private int longestStreak;
-    private int bestOverallScore;
-    private int bestScoreAlbum;
-    private int bestScoreSong;
-
+    private int total_score;
+    private int longest_streak;
+    private int best_overall_score;
+    private int best_score_album;
+    private int best_score_song;
+    
     
     public Users() {}
     
     //Constructor
-    public Users(Long id, String name, int score, int streak, int totalScore, int longestStreak, int bestOverallScore,
-            int bestScoreAlbum, int bestScoreSong) {
+    public Users(Long id, String name, int score, int streak, int total_score, int longest_streak,
+    int best_overall_score, int best_score_album, int best_score_song) {
         this.id = id;
         this.name = name;
         this.score = score;
         this.streak = streak;
-        this.totalScore = totalScore;
-        this.longestStreak = longestStreak;
-        this.bestOverallScore = bestOverallScore;
-        this.bestScoreAlbum = bestScoreAlbum;
-        this.bestScoreSong = bestScoreSong;
-        
+        this.total_score = total_score;
+        this.longest_streak = longest_streak;
+        this.best_overall_score = best_overall_score;
+        this.best_score_album = best_score_album;
+        this.best_score_song = best_score_song;
     }
     
     //Getters and Setters 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getStreak() {
-        return streak;
-    }
-
-    public void setStreak(int streak) {
-        this.streak = streak;
-    }
-
-    public int getTotalScore() {
-        return totalScore;
-    }
-
-    public void setTotalScore(int totalScore) {
-        this.totalScore = totalScore;
-    }
-
-    public int getScore() {
+    public int getscore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setscore(int score) {
         this.score = score;
     }
-
-    public int getLongestStreak() {
-        return longestStreak;
+    public int getLongest_streak() {
+        return longest_streak;
+    }
+    public void setLongest_streak(int longest_streak) {
+        this.longest_streak = longest_streak;
+    }
+    public int getTotal_score() {
+        return total_score;
+    }
+    public void setTotal_score(int total_score) {
+        this.total_score = total_score;
+    }
+    public int getBest_overall_score() {
+        return best_overall_score;
+    }
+    public void setBest_overall_score(int best_overall_score) {
+        this.best_overall_score = best_overall_score;
     }
 
-    public void setLongestStreak(int longestStreak) {
-        this.longestStreak = longestStreak;
+    public int getBest_score_album() {
+        return best_score_album;
     }
 
-    public int getBestOverallScore() {
-        return bestOverallScore;
+    public void setBest_score_album(int best_score_album) {
+        this.best_score_album = best_score_album;
     }
 
-    public void setBestOverallScore(int bestOverallScore) {
-        this.bestOverallScore = bestOverallScore;
+    public int getBest_score_song() {
+        return best_score_song;
     }
 
-    public int getBestScoreAlbum() {
-        return bestScoreAlbum;
+    public void setBest_score_song(int best_score_song) {
+        this.best_score_song = best_score_song;
     }
-
-    public void setBestScoreAlbum(int bestScoreAlbum) {
-        this.bestScoreAlbum = bestScoreAlbum;
+    public Long getId() {
+        return id;
     }
-
-    public int getBestScoreSong() {
-        return bestScoreSong;
+    public int getStreak() {
+        return streak;
     }
-
-    public void setBestScoreSong(int bestScoreSong) {
-        this.bestScoreSong = bestScoreSong;
+    public void setStreak(int streak) {
+        this.streak = streak;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 }
