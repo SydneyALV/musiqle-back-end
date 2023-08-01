@@ -5,7 +5,7 @@ FROM openjdk:11-jdk
 WORKDIR /app
 
 # Copy the JAR file into the container
-COPY target/MusiqleApplication.jar app.jar
+COPY target/Musiqle-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose the port your application is listening on
 EXPOSE 8080
