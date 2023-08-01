@@ -24,25 +24,33 @@ public class UserController {
 
     @Autowired
     private UserService service;
-///Get All Users
+
+    /// Get All Users
     @GetMapping("/user")
     public List<Users> find() {
         return service.find();
     }
-///Get User by Id
+
+    /// Get User by Id
     @GetMapping("/user/{id}")
     public Users showEntry(@PathVariable Long id) {
         return service.showEntry(id);
     }
 
-///Post a new user
+    // @GetMapping("/user/{name}")
+    // public Users findUserByName(@PathVariable String name) {
+    // return service.findUserByName(name);
+    // }
+
+    /// Post a new user
     @PostMapping("/user")
     @ResponseStatus(HttpStatus.CREATED)
     public Users create(@RequestBody Users users) {
         return service.create(users);
     }
 
-/// Patch score, streak, totalScore, longestStreak, bestOverallScore, bestScoreAlbum, bestScoreSong 
+    /// Patch score, streak, totalScore, longestStreak, bestOverallScore,
+    /// bestScoreAlbum, bestScoreSong
     @PatchMapping("/user/{id}/score")
     public Users update(@PathVariable Long id, @RequestBody Map<String, Object> payload) {
         return service.update(id, (int) payload.get("score"));
@@ -78,7 +86,7 @@ public class UserController {
         return service.updateBestScoreSong(id, (int) payload.get("bestScoreSong"));
     }
 
-/// Delete a user
+    /// Delete a user
     @DeleteMapping("/user/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable Long id) {

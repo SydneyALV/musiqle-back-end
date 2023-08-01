@@ -26,6 +26,10 @@ public class UserService implements IUserService {
         return repository.findById(id).orElse(null);
     }
 
+    // public Users findUserByName(String name) {
+    //     return repository.findUserByName(name);
+    // }
+
 /// Patch score, streak, totalScore, longestStreak, bestOverallScore, bestScoreAlbum, bestScoreSong 
     @Override
     public Users update(Long id, int score) {

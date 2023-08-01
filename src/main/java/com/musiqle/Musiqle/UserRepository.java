@@ -10,4 +10,5 @@ import java.util.List;
 public interface UserRepository extends CrudRepository<Users, Long> {
 
     List<Users> findAllByOrderByIdAsc();
+    // Users findUserByName(String name);
 }
