@@ -1,6 +1,7 @@
 package com.musiqle.Musiqle;
 
 import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
@@ -12,14 +13,23 @@ public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="id")
     private Long id;
+    @Column(name="name")
     private String name;
+    @Column(name="score")
     private int score;
+    @Column(name="streak")
     private int streak;
+    @Column(name="totalScore")
     private int totalScore;
+    @Column(name="longestStreak")
     private int longestStreak;
+    @Column(name="bestOverallScore")
     private int bestOverallScore;
+    @Column(name="bestScoreAlbum")
     private int bestScoreAlbum;
+    @Column(name="bestScoreSong")
     private int bestScoreSong;
 
     
