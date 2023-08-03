@@ -1,6 +1,7 @@
 package com.musiqle.Musiqle;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 // import org.springframework.data.annotation.Id;
 import org.springframework.http.HttpStatus;
 // import org.springframework.http.ResponseEntity;
@@ -14,8 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -36,6 +40,25 @@ public class UserController {
     public Users showEntry(@PathVariable Long id) {
         return service.showEntry(id);
     }
+
+    @GetMapping("/musicmix/{trackId}")
+    public Object musicmix(@PathVariable Integer trackId) {
+        // RestTemplate restTemplate = new RestTemplate();
+        // return restTemplate.getForObject(url, Object[]);
+        // return music;
+        // return HashMap.asList(music);
+        // EventsResponse eventResponse = restTemplate.getForObject(url, EventsResponse.class)
+        // HttpEntity<String> requestEntity = new HttpEntity<String>("body",header);
+        // responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, CustomOlapReports.class);
+        return service.getLyrics(trackId);
+        // jsonResponse =  responseEntity.getBody();   
+    }
+
+    @GetMapping("/musicmix/track/{track}")
+    public Object trackmusicmix(@PathVariable String track) {
+        return service.getTrack(track);
+    }
+
 
     // @GetMapping("/user/{name}")
     // public Users findUserByName(@PathVariable String name) {
