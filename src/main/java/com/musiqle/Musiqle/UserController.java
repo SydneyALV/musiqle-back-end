@@ -40,30 +40,16 @@ public class UserController {
     public Users showEntry(@PathVariable Long id) {
         return service.showEntry(id);
     }
-
-    @GetMapping("/musicmix/{trackId}")
-    public Object musicmix(@PathVariable Integer trackId) {
-        // RestTemplate restTemplate = new RestTemplate();
-        // return restTemplate.getForObject(url, Object[]);
-        // return music;
-        // return HashMap.asList(music);
-        // EventsResponse eventResponse = restTemplate.getForObject(url, EventsResponse.class)
-        // HttpEntity<String> requestEntity = new HttpEntity<String>("body",header);
-        // responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, CustomOlapReports.class);
+    ///API Call to MusixMatch to get Track ID
+    @GetMapping("/musixmatch/track/{trackId}")
+    public Object musixmatch(@PathVariable Integer trackId) {
         return service.getLyrics(trackId);
-        // jsonResponse =  responseEntity.getBody();   
     }
-
-    @GetMapping("/musicmix/track/{track}")
-    public Object trackmusicmix(@PathVariable String track) {
-        return service.getTrack(track);
+    ///API Call to MusixMatch to get Track
+    @GetMapping("/musixmatch/track")
+    public Object trackmusixmatch() {
+        return service.getTrack();
     }
-
-
-    // @GetMapping("/user/{name}")
-    // public Users findUserByName(@PathVariable String name) {
-    // return service.findUserByName(name);
-    // }
 
     /// Post a new user
     @PostMapping("/user")
