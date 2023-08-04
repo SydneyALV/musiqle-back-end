@@ -37,11 +37,6 @@ public class UserController {
         return service.showEntry(id);
     }
 
-    // @GetMapping("/user/{name}")
-    // public Users findUserByName(@PathVariable String name) {
-    // return service.findUserByName(name);
-    // }
-
     /// Post a new user
     @PostMapping("/user")
     @ResponseStatus(HttpStatus.CREATED)

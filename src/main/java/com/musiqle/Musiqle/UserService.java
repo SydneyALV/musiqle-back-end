@@ -15,87 +15,86 @@ public class UserService implements IUserService {
     public List<Users> find() {
         return repository.findAllByOrderByIdAsc();
     }
-///Post a new user
+
+    /// Post a new user
     @Override
     public Users create(Users users) {
         return repository.save(users);
     }
-///Get User by Id
+
+    /// Get User by Id
     // @Override
     public Users showEntry(Long id) {
         return repository.findById(id).orElse(null);
     }
 
-    // public Users findUserByName(String name) {
-    //     return repository.findUserByName(name);
-    // }
-
-/// Patch score, streak, totalScore, longestStreak, bestOverallScore, bestScoreAlbum, bestScoreSong 
+    /// Patch score, streak, totalScore, longestStreak, bestOverallScore,
+    /// bestScoreAlbum, bestScoreSong
     @Override
     public Users update(Long id, int score) {
         return repository.findById(id)
-            .map(existingUser -> {
-                existingUser.setScore(score);
-                return repository.save(existingUser);
-            })
-            .orElse(null);
+                .map(existingUser -> {
+                    existingUser.setScore(score);
+                    return repository.save(existingUser);
+                })
+                .orElse(null);
     }
 
     public Users updateStreak(Long id, int score) {
         return repository.findById(id)
-            .map(existingUser -> {
-                existingUser.setStreak(score);
-                return repository.save(existingUser);
-            })
-            .orElse(null);
+                .map(existingUser -> {
+                    existingUser.setStreak(score);
+                    return repository.save(existingUser);
+                })
+                .orElse(null);
     }
 
     public Users updateTotalScore(Long id, int score) {
         return repository.findById(id)
-            .map(existingUser -> {
-                existingUser.setTotalScore(score);
-                return repository.save(existingUser);
-            })
-            .orElse(null);
+                .map(existingUser -> {
+                    existingUser.setTotalScore(score);
+                    return repository.save(existingUser);
+                })
+                .orElse(null);
     }
 
     public Users updateLongestStreak(Long id, int score) {
         return repository.findById(id)
-            .map(existingUser -> {
-                existingUser.setLongestStreak(score);
-                return repository.save(existingUser);
-            })
-            .orElse(null);
+                .map(existingUser -> {
+                    existingUser.setLongestStreak(score);
+                    return repository.save(existingUser);
+                })
+                .orElse(null);
     }
 
     public Users updateBestOverallScore(Long id, int score) {
         return repository.findById(id)
-            .map(existingUser -> {
-                existingUser.setBestOverallScore(score);
-                return repository.save(existingUser);
-            })
-            .orElse(null);
+                .map(existingUser -> {
+                    existingUser.setBestOverallScore(score);
+                    return repository.save(existingUser);
+                })
+                .orElse(null);
     }
 
     public Users updateBestScoreAlbum(Long id, int score) {
         return repository.findById(id)
-            .map(existingUser -> {
-                existingUser.setBestScoreAlbum(score);
-                return repository.save(existingUser);
-            })
-            .orElse(null);
+                .map(existingUser -> {
+                    existingUser.setBestScoreAlbum(score);
+                    return repository.save(existingUser);
+                })
+                .orElse(null);
     }
 
     public Users updateBestScoreSong(Long id, int score) {
         return repository.findById(id)
-            .map(existingUser -> {
-                existingUser.setBestScoreSong(score);
-                return repository.save(existingUser);
-            })
-            .orElse(null);
+                .map(existingUser -> {
+                    existingUser.setBestScoreSong(score);
+                    return repository.save(existingUser);
+                })
+                .orElse(null);
     }
 
-/// Delete a user
+    /// Delete a user
     @Override
     public void delete(Long id) {
         repository.deleteById(id);
