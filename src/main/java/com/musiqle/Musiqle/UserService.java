@@ -40,8 +40,8 @@ public class UserService implements IUserService {
 ///Get API call to Query Track from MusixMix Using Popular playlist
     private RestTemplate trackTemplate = new RestTemplate();
     public String getTrack() {
-        Dotenv dotenv = Dotenv.load();
-        String musicmixapikey= dotenv.get("APIKEY");
+        // Dotenv dotenv = Dotenv.load();
+        String musicmixapikey= System.getenv("APIKEY");
         String trackurl = String.format("http://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=top&f_has_lyrics=1&country=US&apikey="+musicmixapikey);
         String result = trackTemplate.getForObject(trackurl, String.class);
         return result;
