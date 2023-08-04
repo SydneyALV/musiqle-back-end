@@ -30,8 +30,8 @@ public class UserService implements IUserService {
 ///Get API CALL for Lyrics from MusixMix
     private RestTemplate template = new RestTemplate();
     public String getLyrics(Integer trackId) {
-        Dotenv dotenv = Dotenv.load();
-        String musicmixapikey= dotenv.get("APIKEY");
+        // Dotenv dotenv = Dotenv.load();
+        String musicmixapikey= System.getenv("MUSIXAPIKEY");
         String url = String.format("http://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey="+musicmixapikey+"&track_id="+trackId);
         String result = template.getForObject(url, String.class);
         return result;
@@ -41,7 +41,7 @@ public class UserService implements IUserService {
     private RestTemplate trackTemplate = new RestTemplate();
     public String getTrack() {
         // Dotenv dotenv = Dotenv.load();
-        String musicmixapikey= System.getenv("APIKEY");
+        String musicmixapikey= System.getenv("MUSIXAPIKEY");
         String trackurl = String.format("http://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=top&f_has_lyrics=1&country=US&apikey="+musicmixapikey);
         String result = trackTemplate.getForObject(trackurl, String.class);
         return result;
