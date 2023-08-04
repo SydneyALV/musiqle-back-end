@@ -1,6 +1,7 @@
 package com.musiqle.Musiqle;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 // import org.springframework.data.annotation.Id;
 import org.springframework.http.HttpStatus;
 // import org.springframework.http.ResponseEntity;
@@ -14,8 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -36,11 +40,16 @@ public class UserController {
     public Users showEntry(@PathVariable Long id) {
         return service.showEntry(id);
     }
-
-    // @GetMapping("/user/{name}")
-    // public Users findUserByName(@PathVariable String name) {
-    // return service.findUserByName(name);
-    // }
+    ///API Call to MusixMatch to get Track ID
+    @GetMapping("/musixmatch/track/{trackId}")
+    public Object musixmatch(@PathVariable Integer trackId) {
+        return service.getLyrics(trackId);
+    }
+    ///API Call to MusixMatch to get Track
+    @GetMapping("/musixmatch/track")
+    public Object trackmusixmatch() {
+        return service.getTrack();
+    }
 
     /// Post a new user
     @PostMapping("/user")
