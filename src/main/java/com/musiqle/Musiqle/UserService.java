@@ -3,9 +3,8 @@ package com.musiqle.Musiqle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import java.util.HashMap;
 import java.util.List;
-import io.github.cdimascio.dotenv.Dotenv;
+// import io.github.cdimascio.dotenv.Dotenv;
 
 @Service
 public class UserService implements IUserService {
@@ -41,8 +40,9 @@ public class UserService implements IUserService {
     private RestTemplate trackTemplate = new RestTemplate();
     public String getTrack() {
         // Dotenv dotenv = Dotenv.load();
+        // String musicmixapikey= dotenv.get("MUSIXAPIKEY");
         String musicmixapikey= System.getenv("MUSIXAPIKEY");
-        String trackurl = String.format("http://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=top&f_has_lyrics=1&country=US&apikey="+musicmixapikey);
+        String trackurl = String.format("http://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=mxmweekly&f_has_lyrics=1&country=US&page_size=100&apikey="+musicmixapikey);
         String result = trackTemplate.getForObject(trackurl, String.class);
         return result;
     }
