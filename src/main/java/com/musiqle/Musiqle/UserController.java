@@ -40,15 +40,22 @@ public class UserController {
     public Users showEntry(@PathVariable Long id) {
         return service.showEntry(id);
     }
+
     ///API Call to MusixMatch to get Track ID
     @GetMapping("/musixmatch/track/{trackId}")
     public Object musixmatch(@PathVariable Integer trackId) {
         return service.getLyrics(trackId);
     }
-    ///API Call to MusixMatch to get Track
+    ///API Call to MusixMatch to get Random Track
     @GetMapping("/musixmatch/track")
     public Object trackmusixmatch() {
         return service.getTrack();
+    }
+
+    ///API Call to MusixMatch to get Track from Selected Playlist
+    @GetMapping("/musixmatch/selected_playlist_track")
+    public Object trackmusixmatch(@PathVariable String q_track) {
+        return service.findTrack(q_track);
     }
 
     /// Post a new user

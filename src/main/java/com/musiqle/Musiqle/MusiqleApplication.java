@@ -16,5 +16,4 @@ public class MusiqleApplication {
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         return builder.build();
     }
-
 }
