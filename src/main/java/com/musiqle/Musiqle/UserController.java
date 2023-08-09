@@ -41,6 +41,29 @@ public class UserController {
         return service.showEntry(id);
     }
 
+    @PostMapping("/access_token")
+    public Object spotifyaccess() {
+        return service.getAccessToken();
+    }
+
+    ///API Call to Spotify to get Genres
+    @GetMapping("/genres")
+    public Object spotifygenres() {
+        return service.getGenres();
+    }
+
+    ///API Call to Spotify to get Playlists from Genre ID
+    @GetMapping("/genres/{genreId}/playlists")
+    public Object spotifyplaylists(@PathVariable String genreId) {
+        return service.getPlaylists(genreId);
+    }
+
+    ///API Call to Spotify to get Tracks from Specific Playlist
+    @GetMapping("/playlists/{playlistId}")
+    public Object spotifytracks(@PathVariable String playlistId) {
+        return service.getTracks(playlistId);
+    }
+
     ///API Call to MusixMatch to get Track ID
     @GetMapping("/musixmatch/track/{trackId}")
     public Object musixmatch(@PathVariable Integer trackId) {
