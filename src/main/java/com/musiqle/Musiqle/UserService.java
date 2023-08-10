@@ -29,7 +29,7 @@ import java.net.URI;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+// import java.util.Map;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionException;
@@ -195,10 +195,9 @@ public class UserService implements IUserService {
 
     public String getTrack() {
         // Dotenv dotenv = Dotenv.load();
-        String musicmixapikey = System.getenv("MUSIXAPIKEY");
-        String trackurl = String.format(
-                "http://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=top&f_has_lyrics=1&country=US&apikey="
-                        + musicmixapikey);
+        // String musicmixapikey= dotenv.get("MUSIXAPIKEY");
+        String musicmixapikey= System.getenv("MUSIXAPIKEY");
+        String trackurl = String.format("http://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=mxmweekly&f_has_lyrics=1&country=US&page_size=100&apikey="+musicmixapikey);
         String result = trackTemplate.getForObject(trackurl, String.class);
         return result;
     }
