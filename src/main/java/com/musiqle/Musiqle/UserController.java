@@ -41,7 +41,7 @@ public class UserController {
         return service.showEntry(id);
     }
 
-    @PostMapping("/access_token")
+    @GetMapping("/access_token")
     public Object spotifyaccess() {
         return service.getAccessToken();
     }
@@ -69,6 +69,7 @@ public class UserController {
     public Object musixmatch(@PathVariable Integer trackId) {
         return service.getLyrics(trackId);
     }
+    
     ///API Call to MusixMatch to get Random Track
     @GetMapping("/musixmatch/track")
     public Object trackmusixmatch() {
@@ -76,9 +77,9 @@ public class UserController {
     }
 
     ///API Call to MusixMatch to get Track from Selected Playlist
-    @GetMapping("/musixmatch/selected_playlist_track")
-    public Object trackmusixmatch(@PathVariable String q_track) {
-        return service.findTrack(q_track);
+    @GetMapping("/musixmatch/search_track/{qTrack}/{qArtist}")
+    public Object trackmatch(@PathVariable String qTrack, @PathVariable String qArtist) {
+        return service.findTrack(qTrack, qArtist);
     }
 
     /// Post a new user
