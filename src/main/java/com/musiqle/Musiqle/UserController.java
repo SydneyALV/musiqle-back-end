@@ -114,9 +114,9 @@ public class UserController {
         return service.updateBestOverallScore(id, (int) payload.get("bestOverallScore"));
     }
 
-    @PatchMapping("/user/{id}/bestscorealbum")
+    @PatchMapping("/user/{id}/bestscoreartist")
     public Users updateBestScoreAlbum(@PathVariable Long id, @RequestBody Map<String, Object> payload) {
-        return service.updateBestScoreAlbum(id, (int) payload.get("bestScoreAlbum"));
+        return service.updateBestScoreArtist(id, (int) payload.get("bestScoreArtist"));
     }
 
     @PatchMapping("/user/{id}/bestscoresong")

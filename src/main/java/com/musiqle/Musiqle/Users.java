@@ -19,15 +19,14 @@ public class Users {
     private int totalScore;
     private int longestStreak;
     private int bestOverallScore;
-    private int bestScoreAlbum;
+    private int bestScoreArtist;
     private int bestScoreSong;
 
-    
     public Users() {}
-    
+
     //Constructor
     public Users(Long id, String name, int score, int streak, int totalScore, int longestStreak, int bestOverallScore,
-            int bestScoreAlbum, int bestScoreSong) {
+            int bestScoreArtist, int bestScoreSong) {
         this.id = id;
         this.name = name;
         this.score = score;
@@ -35,80 +34,99 @@ public class Users {
         this.totalScore = totalScore;
         this.longestStreak = longestStreak;
         this.bestOverallScore = bestOverallScore;
-        this.bestScoreAlbum = bestScoreAlbum;
+        this.bestScoreArtist = bestScoreArtist;
         this.bestScoreSong = bestScoreSong;
-        
     }
-    
+
     //Getters and Setters 
+
     public Long getId() {
         return id;
     }
 
+
     public void setId(Long id) {
         this.id = id;
     }
+
+
     public String getName() {
         return name;
     }
+
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public int getStreak() {
-        return streak;
-    }
-
-    public void setStreak(int streak) {
-        this.streak = streak;
-    }
-
-    public int getTotalScore() {
-        return totalScore;
-    }
-
-    public void setTotalScore(int totalScore) {
-        this.totalScore = totalScore;
-    }
 
     public int getScore() {
         return score;
     }
 
+
     public void setScore(int score) {
         this.score = score;
     }
+
+
+    public int getStreak() {
+        return streak;
+    }
+
+
+    public void setStreak(int streak) {
+        this.streak = streak;
+    }
+
+
+    public int getTotalScore() {
+        return totalScore;
+    }
+
+
+    public void setTotalScore(int totalScore) {
+        this.totalScore = totalScore;
+    }
+
 
     public int getLongestStreak() {
         return longestStreak;
     }
 
+
     public void setLongestStreak(int longestStreak) {
         this.longestStreak = longestStreak;
     }
+
 
     public int getBestOverallScore() {
         return bestOverallScore;
     }
 
+
     public void setBestOverallScore(int bestOverallScore) {
         this.bestOverallScore = bestOverallScore;
     }
 
-    public int getBestScoreAlbum() {
-        return bestScoreAlbum;
+
+    public int getBestScoreArtist() {
+        return bestScoreArtist;
     }
 
-    public void setBestScoreAlbum(int bestScoreAlbum) {
-        this.bestScoreAlbum = bestScoreAlbum;
+
+    public void setBestScoreArtist(int bestScoreArtist) {
+        this.bestScoreArtist = bestScoreArtist;
     }
+
 
     public int getBestScoreSong() {
         return bestScoreSong;
     }
 
+
     public void setBestScoreSong(int bestScoreSong) {
         this.bestScoreSong = bestScoreSong;
     }
+
 }
