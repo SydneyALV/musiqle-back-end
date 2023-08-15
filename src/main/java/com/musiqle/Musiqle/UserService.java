@@ -250,10 +250,10 @@ public class UserService implements IUserService {
                 .orElse(null);
     }
 
-    public Users updateBestScoreAlbum(Long id, int score) {
+    public Users updateBestScoreArtist(Long id, int score) {
         return repository.findById(id)
                 .map(existingUser -> {
-                    existingUser.setBestScoreAlbum(score);
+                    existingUser.setBestScoreArtist(score);
                     return repository.save(existingUser);
                 })
                 .orElse(null);

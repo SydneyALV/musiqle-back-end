@@ -6,6 +6,6 @@ CREATE TABLE users (
     totalScore INT DEFAULT 0,
     longestStreak INT DEFAULT 0,
     bestOverallScore INT DEFAULT 0,
-    bestScoreAlbum INT DEFAULT 0,
+    bestScoreArtist INT DEFAULT 0,
     bestScoreSong INT DEFAULT 0
 );
