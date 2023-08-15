@@ -97,7 +97,7 @@ public class UserService implements IUserService {
     private RestTemplate findGenresTemplate = new RestTemplate();
 
     public Object getGenres() {
-        String url = "https://api.spotify.com/v1/browse/categories";
+        String url = "https://api.spotify.com/v1/browse/categories?limit=12";
         Object accessToken = getAccessToken();
         System.out.println(accessToken);
         RequestEntity request = RequestEntity
